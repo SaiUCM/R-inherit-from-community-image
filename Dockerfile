@@ -4,7 +4,8 @@ USER root
 COPY apt.txt /tmp/apt.txt
 RUN apt-get update && \
     # Ignore comments in packages
-    grep '^\s*[^#]\+' /tmp/apt.txt | xargs apt-get -y install
+    grep '^\s*[^#]\+' /tmp/apt.txt | xargs apt-get -y install \
+    && apt remove code-server
 
 USER ${NB_USER}
 
@@ -13,7 +14,8 @@ RUN Rscript /tmp/install.r
 
 
 COPY environment.yml /tmp/environment.yml
-RUN conda env update --file /tmp/environment.yml
+RUN conda env remove jupyter-vscode-proxy && \
+    conda env update --file /tmp/environment.yml
 
 # Set working directory so Jupyter knows where to start
 WORKDIR /home/rstudio
