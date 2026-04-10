@@ -14,7 +14,9 @@ RUN Rscript /tmp/install.r
 
 
 COPY environment.yml /tmp/environment.yml
-RUN conda env update --file /tmp/environment.yml
+RUN conda remove jupyter-vscode-proxy && \
+    conda env update --file /tmp/environment.yml
+
 # Set working directory so Jupyter knows where to start
 WORKDIR /home/rstudio
 
