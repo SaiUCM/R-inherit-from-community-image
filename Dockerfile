@@ -5,7 +5,7 @@ COPY apt.txt /tmp/apt.txt
 RUN apt-get update && \
     # Ignore comments in packages
     grep '^\s*[^#]\+' /tmp/apt.txt | xargs apt-get -y install \
-    && apt remove code-server
+    && apt remove code-server -y
 
 USER ${NB_USER}
 
