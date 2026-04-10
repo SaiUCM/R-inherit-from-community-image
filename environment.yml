@@ -2,16 +2,12 @@ name: base
 channels:
   - conda-forge
 dependencies:
-  # Provide info on memory usage in JupyterLab
-  - jupyter-resource-usage==1.1.*
   # People still wanna pull stuff, even if into RStudio
   - nbgitpuller==1.2.*
-  - tensorflow-cpu==2.18.*
   # Based on request
   # https://2i2c.freshdesk.com/a/tickets/5448
   - otter-grader==6.1.*
   - pip
   - pip:
-      - jupyter-shiny-proxy==1.3.*
       # For pulling from private repositories
       - git-credential-helpers==0.2
