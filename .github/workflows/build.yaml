@@ -33,7 +33,7 @@ jobs:
         # Disable pushing a 'latest' tag, as this often just causes confusion
         LATEST_TAG_OFF: true
 
-        IMAGE_NAME: "2i2c/utoronto-r-image"
+        IMAGE_NAME: "cirt_ucm/ucmerced-r-image"
 
     # Lets us monitor disks getting full as images get bigger over time
     - name: Show how much disk space is left
